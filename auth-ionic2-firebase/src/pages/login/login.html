@@ -1,0 +1,62 @@
+<!--
+  Generated template for the Login page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content id="login" >
+
+     <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+         <!--divs-->
+            <div class="row responsive-md">
+                <div class="col col-50 col-offset-25">
+                        <!---->
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input #email formControlName="email" type="email" placeholder="Your email address" 
+        [class.invalid]="!loginForm.controls.email.valid && loginForm.controls.email.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" 
+      *ngIf="!loginForm.controls.email.valid  && loginForm.controls.email.dirty">
+      <p>Please enter a valid email.</p>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input #password formControlName="password" type="password" placeholder="Your password" 
+        [class.invalid]="!loginForm.controls.password.valid && loginForm.controls.password.dirty"></ion-input>
+    </ion-item>
+    <ion-item class="error-message" 
+      *ngIf="!loginForm.controls.password.valid  && loginForm.controls.password.dirty">
+      <p>Your password needs more than 6 characters.</p>
+    </ion-item>
+
+    <button ion-button block type="submit">
+      Login
+    </button>
+                     <button ion-button block clear (click)="goToSignup()">
+      Create a new account
+    </button>
+
+    <button ion-button block clear (click)="goToResetPassword()">
+      I forgot my password
+    </button>
+
+   </div>
+    </div>
+
+  </form>
+
+   
+    
+
+</ion-content>
